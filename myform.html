@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+    background-image: url("photo.svg");
+    background-attachment: fixed;
+    text-align: center;
+    font-size: 30px;
+    color: white;
+}
+h3,ul,li
+{
+    text-align: justify;
+}
+#nom
+{
+    font-size: 20px;
+}
+#but
+{
+    background-color: rgb(77, 99, 197);
+    border-radius: 2cm;
+}
+
+    </style>
+</head>
+<body>
+    <form ACTION="myphp.php" METHOD="POST">
+        Ce formulaire vous permet d'indiquer des paramètres pour la recherche
+        <br>
+        <P id="nom" >
+        NOM : <INPUT TYPE=TEXT NAME='nom' VALUE='%' > <BR>
+        <P>
+        <INPUT id="but" TYPE=Submit VALUE='Rechercher'>
+        </FORM>
+    </br>
+</br> 
+</br> 
+<a href="compteur.php">Acceuil</a>  
+</body>
+</html>

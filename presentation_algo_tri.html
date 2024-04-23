@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algorithmes de Tri | TP php</title>
+    <style>
+        *{
+            font-size: xx-large;
+            
+        }
+        h1{
+            text-align: center;
+            text-decoration: underline;
+            color: rgb(60, 72, 180);
+        }
+        ol>li{
+            text-decoration: underline;
+            font-weight: bold;
+            color: darkgreen;
+        }
+        *{
+            background-color:  whitesmoke;
+        }
+        
+        ol>*,code,samp,li,code{
+            background-color:  white;
+        }
+        
+        li>a{
+            transition: 1s;
+            color: lightgreen
+        }
+        li>a:hover{
+            color: rgb(189, 233, 30);
+        }
+        
+    </style>
+</head>
+<body>
+    <a href="./index.html"> &lArr; Retour au Sommaire</a>
+<h1>Algorithmes de Tri | TP php</h1>
+    <ol>
+        <li ><a id="bulles" href="./bulles.php" >Tri a Bulles:</a></li>
+        <p>
+            C'est une méthode de réorganisation d'une suite d'élément. Elle n'est pas la plus performante de sa catégorie.
+            On considere un tableau contenant les éléments suivants:<br>
+            <code>[30, 12, 15,  4]</code><br>
+            le principe consiste a parcourir le tableau élément par élément en comparant l'élément courant par l'élément suivant. Si ses deux éléments la ne sont pas dans l'ordre alors ils seront permutés.
+            <br><br><code>[ 12, 30, 15, 4]</code><br>
+            <code>[12, 15, 30, 4]</code><br>
+            <code>[12, 15, 4, 30]</code><br>
+            <samp>fin premier parcourt</samp><br><br> 
+            Ainsi a la fin du premier parcours on aura placé l'élément le plus grand a la fin du tableau. On recommence en excluant l'élément le plus a droite ainsi de suite jusqu'a la fin.
+            <br><br><code>[12, 4, 15, 30]</code>
+            <br><code>[4, 12, 15, 30]</code><br><br>
+            Ainsi le tableau est ordonne.
+        </p>
+        <br><hr><br>
+        <li>Tri Rapide:</li>
+        <p>
+            Pour ce tri on va utiliser les notions de partition et de pivot. On considére un tableau contenant les éléments suivant:
+            <br><code>[30, 12, 15, 14]</code><br>
+            on choisit 12 comme pivot,
+            <ul>
+                <li>on va placer les nombres plus petits que le pivot a gauche</li>
+                <li>Les nombres plus grand que le pivot a droite</li>
+            </ul>
+            On aura:
+            <br><code>[4, 12, 30 ,15]</code><br>
+            puis on change de pivot; en choisissant 15 on aura:
+            <br><code>[4, 12, 15 ,30]</code>  
+        </p>
+        <br><hr><br>
+        <li ><a  href="./fusion.php" id="#fusions">Tri par Fusion:</a></li>
+        <p>
+            Cet algorithme prend en entrée deux tableaux de n éléments triés.
+            Soient <code>[2 ,4 ,5,8]</code> et <code>[1, 3, 6, 7]</code> deux tableaux deja triés. <br>
+            <ul>
+                <li>on va comparer le premier élément du premier tableau avec le premier élément du second tableau</li>
+                <li>le plus petit sera l'élément le plus petit du tableau fusionnel</li>
+            </ul>   
+            <br><code>[2 ,4 ,5,8]</code> et <code>[3, 6, 7]</code> &rAarr; <samp>tableau fusion : [1]</samp><br>
+            <ul><li>On refait la meme chose pour les éléments restants</li></ul> 
+            <br><code>[4, 5, 8]</code> et <code>[3, 6, 7]</code> &rAarr; <samp>tableau fusion : [1, 2];</samp><br>
+            <br><code>[4, 5, 8]</code> et <code>[6, 7]</code> &rAarr; <samp>tableau fusion : [1, 2, 3];</samp><br>
+            <br><code>[5, 8]</code> et <code>[6, 7]</code> &rAarr; <samp>tableau fusion : [1, 2, 3, 4];</samp><br>
+            <br><code>[8]</code> et <code>[6, 7]</code> &rAarr; <samp>tableau fusion : [1, 2, 3, 4, 5];</samp><br>
+            <br><code>[8]</code> et <code>[7]</code> &rAarr; <samp>tableau fusion : [1, 2, 3, 4, 5, 6];</samp><br>
+            <br><code>[8]</code> et <code>[7]</code> &rAarr; <samp>tableau fusion : [1, 2, 3, 4, 5, 6, 7];</samp><br>
+            <br><code>[8]</code> &rAarr; <samp>tableau fusion : [1, 2, 3, 4, 5, 6, 7, 8];</samp><br><br>
+            Enfin on aura un tableau ordonné. <br><br>
+            La fonction de fusion en PHP permet de combiner plusieurs tableaux en un seul. Il existe plusieurs manières de faire cela, mais l'une des plus courantes est d'utiliser la fonction <i>array_merge()</i>. Cette fonction prend en argument un nombre quelconque de tableaux et les fusionne en un seul tableau. Par exemple: <br><br>
+            <code>$tableau1 = array("rouge", "vert", "bleu"); $tableau2 = array("jaune", "orange"); $tableau3 = array("violet", "indigo");</code><br>
+            <code>$tableau_final = array_merge($tableau1, $tableau2, $tableau3);</code>
+            <br><samp><i>//array("rouge", "vert", "bleu", "jaune", "orange", "violet", "indigo")</i></samp>
+
+        </p>
+        <br><hr><br>
+        <li ><a href="./selection.php" id="#selections">Tri par Selection:</a>
+        </li>
+        <p>
+            Pour ce tri on va utiliser les notions de <i>variable temporaire</i><br>
+            On considere un tableau contenant les éléments suivants: <br>
+            <code>[30, 12, 15,  4]</code>
+            <ul><li>On va sélectionner 30 et mémoriser son indice de position</li></ul><br>
+            <code>12 &lt; 30</code>, on sélectionne 12; <br>
+            <code>12 &lt; 15</code>, donc 15 retourne a sa place <br>
+            <code>12 &gt 4</code>, donc 12 retoune a sa place , on sélectionne 4 et mémorise son indice de position <br><br>
+            <ul>
+            <li>Puis on permute 4 et 30 par la variable temporaire</li>
+            <li>On répete avec le reste du tableau jusqu'a ce le tableau soit ordonné</li>
+            </ul>
+        </p>
+        <br><hr><br>
+        <li ><a href="./insertion.php" >Tri par Insertion:</a></li>
+            <p id="#insertion">
+                Pour ce tri on commence par la deuxieme case du tableau ,puis on place sa valeur dans le tampon. Ensuite on compare le premier le premier avec le second 
+                <br><code>temp=valeur num3</code><br>
+                Puis on la compare avec  la deuxième case , peut être ensuite avec la première et ainsi de suite jusqu'a la fin
+            </p>
+        <li>Tri par Valeur:</li>
+            <p>
+                On peut trier un tableau par ordre alphabétique avec la fonction <code>sort()</code> qui prend comme paramètre le tableau à trier. La fonction trie mais ne renvoie rien. Le comportement de tri peut être modifié par des constantes de tri à fournir en deuxième paramètre de la fonction.
+                <ul>
+                    <li><code>SORT_REGULAR</code> : compare les éléments normalement (ne modifie pas les types)</li>
+                    <li><code>SORT_NUMERIC</code> : compare les éléments numériquement</li>
+                    <li><code>SORT_STRING</code> : compare les éléments comme des chaînes de caractères</li>
+                    <li><code>SORT_NATURAL</code> : compare les éléments comme des chaînes de caractères en utilisant l’ordre nature comme le fait la fonction <code>natsort()</code></li>
+                    <li><code>SORT_FLAG_CASE</code> : peut être combiné (grâce à lopérateur OR) avec <code>sort_string</code> ou <code>sort_natural</code> pour trier les chaînes sans tenir compte de la casse.</li>
+                </ul>
+            </p>
+        <li>Tri Shell:</li>
+            <p>
+                Ce tri est une accélération du tri par insertion. Dans le tri par insertion, un élément va à sa place en progressant lentement, case par case. L'accélération consiste à le faire aller à sa place en commençant par faire des grands pas, puis des pas de plus en plus petits, jusqu'à, évidemment, des pas de 1 pour que le tableau soit trié.
+                <ul>
+                    <li>L'étape de base de l'algorithme considère le tableau initial constitué de h sous-tableaux, dont les éléments sont distants de h cases. ces h tableaux sont triés par l'algorithme de tri par insertion. On dit alors que le tableau initial est h-trié.</li>
+                    <li>On répète cette opération de base pour des valeurs de h qui vont en diminuant jusqu'à une valeur finale 1.</li>
+                </ul>
+                La qualité du tri Shell va dépendre de la suite des valeurs de h. Une « bonne » suite est donnée par :  
+                <code>
+        <pre>
+            void ShellSort(int a[]) {
+            // calcul de la valeur initiale de h
+            int h = 1;
+            while ( h &le; a.lenth) h = 3*h + 1;
+            while ( h &gt; 1) {
+                h = h / 3;
+                // tri par insertion des h tableaux
+                for (int i = h; i &lt; a.length; ++i){
+                    if (a[i] &lt; a[i-h]) {
+                            int   v = a[i], j = i;
+                            while (j &ge; h  &&  a[j-h] &gt; v) {
+                                a[j] = a[j-h];
+                                j = j - h;
+                            };
+                                a[j] = v;
+                        }
+                    }
+                }
+            }
+        </pre>
+        </code>               
+            </p>
+        <li ><a href="cocktail.php" id="cocktail">Tri Cocktail:</a></li>
+            <p>
+                <i>Le tri cocktail</i> (cocktail sort), ou <i>tri shaker</i> (shaker sort) ou <i>tri à bulles bidirectionnel</i> (bidirectional bubble sort) est une variante du tri à bulles qui est à la fois un algorithme de tri et un tri par comparaison. La différence entre cet algorithme et le tri à bulles est qu'il exécute un tri dans chaque direction à chaque passe le long de la liste à trier. Cet algorithme de tri n'est que légèrement plus difficile à comprendre et à mettre en œuvre que le tri à bulles, et il résout en partie le problème des tortues du tri à bulles (les tortues sont les petits éléments situés près de la fin de la liste d'origine, qui ne remontent que très lentement, un emplacement par itération, vers leur emplacement définitif).
+            </p>
+        <li>Tri a Peigne:</li>
+            <p>
+                Le tri à peigne (ou tri de peigne) est un algorithme de tri qui est similaire au tri à bulles, mais qui peut être plus efficace dans certains cas. L'idée de base est de parcourir la liste à trier en comparant des éléments qui sont espacés d'une certaine distance, puis de réduire progressivement cette distance jusqu'à ce qu'elle soit égale à 1, comme dans le tri à bulles. La différence est que dans le tri à peigne, la distance entre les éléments comparés diminue plus rapidement, ce qui peut accélérer le processus de tri.
+            </p>
+        <li>Tri Comptage:</li>
+            <p>
+                Le tri par comptage (ou tri de dénombrement) est un algorithme de tri qui est utilisé pour trier une liste de nombres entiers en comptant le nombre d'occurrences de chaque nombre dans la liste. L'algorithme est basé sur le principe que si le nombre d'occurrences de chaque élément est connu, il est possible de les trier en les plaçant dans l'ordre croissant.
+            </p>
+    </ol>
+    <hr>
+    <a href="./index.html">&lArr;Retour au Sommaire</a>
+</body>
+</html>
